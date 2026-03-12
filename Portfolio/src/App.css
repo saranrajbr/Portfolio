@@ -574,15 +574,72 @@ body {
 }
 
 .skillpage-skills-content div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
     height: 304px;
     width: 244px;
+    box-sizing: border-box;
     background-color: #0F2E35;
     border-radius: 24px;
     border: 1px solid #1E293B;
     transform: translateY(-8px);
     box-shadow: 0 -8px 16px rgba(74, 222, 128, 0.15);
     border-color: rgba(74, 222, 128, 0.6);
+}
 
+.skillpage-skills-content div h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    color: #4ade80;
+    margin: 0 0 12px 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.skillpage-skills-content div img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.skillpage-skills-content div ul {
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 12px;
+    width: max-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 1;
+    scrollbar-width: thin;
+    scrollbar-color: #4ade80 transparent;
+}
+
+.skillpage-skills-content div ul::-webkit-scrollbar {
+    width: 6px;
+}
+
+.skillpage-skills-content div ul::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.skillpage-skills-content div ul::-webkit-scrollbar-thumb {
+    background-color: #4ade80;
+    border-radius: 10px;
+}
+
+.skillpage-skills-content div li {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    color: #CBD5E1;
+    list-style-type: disc;
+    margin-bottom: 8px;
+    text-align: left;
 }
 
 .skillpage-certificate-content {
@@ -593,13 +650,14 @@ body {
     overflow-x: auto;
     padding-bottom: 20px;
     scrollbar-width: none;
+    
 }
 
 .skillpage-certificate-content::-webkit-scrollbar {
     display: none;
 }
 
-.skillpage-certificate-content div {
+.cer-box {
     height: 252px;
     min-width: 250px;
     width: 250px;
@@ -610,15 +668,76 @@ body {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 
-.skillpage-certificate-content div:hover,
+.cer-box:hover,
 .skillpage-skills-content div:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 20px rgba(74, 222, 128, 0.15);
     border-color: rgba(74, 222, 128, 0.6);
 }
 
+.cer-head{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.cer-head h4{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter';
+    font-size: 14px;
+    color: #64748B;
+}
+
+.cer-head h3{
+    margin:0;
+    padding: 0;
+    color: #ffffff;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    margin-left: 5px;
+}
+
+
+.cer-box img{
+    margin-top: 20px;
+    
+}
+
+.cer-btn{
+    width:200px ;
+    height: 38px;
+    background-color:  rgba(129, 250, 173, 0.6);
+    border-radius: 12px;
+    border: 1px solid #00FF41;
+    margin-bottom: 10px;
+    text-decoration: none;
+    cursor:copy;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+
+.cer-btn img{
+    margin: 0;
+}
+
+.cer-btn:active{
+        cursor:wait;
+    }
 
 .contactpage {
     display: flex;
@@ -723,7 +842,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     margin-left: 80px;
-    margin-right:30px;
+    margin-right: 30px;
 }
 
 
@@ -753,6 +872,8 @@ body {
 .contactpage-rightside-content a img {
     margin-left: 20px;
 }
+
+
 
 @media screen and (max-width: 768px) {
     .sidenav {
@@ -868,7 +989,11 @@ body {
     .projectpage-solo-content,
     .projectpage-team-content {
         flex-direction: row;
+    }
 
+
+    .projectpage-team-content{
+        margin-bottom:20px ;
     }
 
     .projectpage-solo-content1,
@@ -913,23 +1038,84 @@ body {
     }
 
     .skillpage-skills-content div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 340px;
-        height: 400px;
+        height: auto;
+        min-height: 400px;
+        box-sizing: border-box;
         transform: translateY(-8px);
         box-shadow: 0 -8px 16px rgba(74, 222, 128, 0.15);
         border-color: rgba(74, 222, 128, 0.6);
     }
 
+    .skillpage-skills-content div h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    color: #4ade80;
+    margin: 0 0 12px 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.skillpage-skills-content div img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+    .skillpage-skills-content div ul {
+        max-height: 200px;
+        margin: 0 auto;
+        margin-top: 40px;
+        padding-left: 24px;
+        padding-right: 12px;
+        width: max-content;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+        flex: 1;
+        scrollbar-width: thin;
+        scrollbar-color: #4ade80 transparent;
+    }
+
+    .skillpage-skills-content div ul::-webkit-scrollbar {
+    width: 6px;
+}
+
+.skillpage-skills-content div ul::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.skillpage-skills-content div ul::-webkit-scrollbar-thumb {
+    background-color: #4ade80;
+    border-radius: 10px;
+}
+
+.skillpage-skills-content div li {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    color: #CBD5E1;
+    list-style-type: disc;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+
     .skillpage-certificate-content {
         margin-bottom: 50px;
     }
 
-    .skillpage-certificate-content div {
+    .cer-box {
         height: 350px;
         min-width: 300px;
     }
 
-    .skillpage-certificate-content div:hover,
+    .cer-box:hover,
     .skillpage-skills-content div:hover {
         transform: translateY(-8px);
         box-shadow: 0 12px 20px rgba(74, 222, 128, 0.15);
@@ -948,14 +1134,18 @@ body {
         flex-shrink: 0;
     }
 
+    .contactpage-rightside{
+        margin-bottom: 20px;
+    }
+
     .contactpage-leftside-content p {
         word-break: break-word;
-        
+
     }
 
     .contactpage-rightside-content {
         margin-left: 10px;
-        margin-bottom:50px;
+        margin-bottom: 50px;
         gap: 20px;
     }
 
@@ -972,10 +1162,23 @@ body {
     }
 
     .contactpage-rightside-content a:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(74, 222, 128, 0.3);
-    background-color: rgba(74, 222, 128, 0.15);
-    border: 1px solid #4ade80;
-}
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(74, 222, 128, 0.3);
+        background-color: rgba(74, 222, 128, 0.15);
+        border: 1px solid #4ade80;
+    }
+
+    .cer-box img{
+        margin-top: 50px;
+    }
+
+
+    .cer-btn img{
+        margin:0;
+    }
+
+    .cer-btn:active{
+        cursor: wait;
+    }
 
 }
