@@ -7,13 +7,15 @@ import twitter from '../assets/twitter.png';
 import instagram from '../assets/instagram.png';
 import facebook from '../assets/facebook.png';
 import tryhackme from '../assets/tryhackme.png';
+import resume from '../assets/resume_saran_raj_b_r.png';
+
 const ContactPage = () => {
     return (
         <div className="contactpage">
             <div className="contactpage-leftside">
                 <div className="contactpage-leftside-heading">
-                    <h2>Get in Touch</h2>
-                    <p>Have a web application, security challenge, or vulnerability to analyze? Let’s work together to identify risks and strengthen digital defenses.</p>
+                    <h2>Let's Connect</h2>
+                    <p>Interested in cybersecurity, security research, AI, or building useful technology? Let's connect.</p>
                 </div>
                 <div className="contactpage-leftside-content">
                     <div className='contactpage-leftside-content-email'>
@@ -33,7 +35,6 @@ const ContactPage = () => {
                             <h4>PHONE</h4>
                             <p>+91 7826809233</p>
                         </div>
-
                     </div>
                     <div className='contactpage-leftside-content-location'>
                         <div className='contactpage-img'>
@@ -45,6 +46,18 @@ const ContactPage = () => {
                         </div>
                     </div>
                 </div>
+                <a
+                    href={resume}
+                    download="Saran_Raj_B_R_Resume.png"
+                    className="contact-resume-btn"
+                >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Resume
+                </a>
             </div>
             <div className="contactpage-rightside">
                 <div className="contactpage-rightside-heading">
@@ -75,7 +88,6 @@ const ContactPage = () => {
                         <img src={tryhackme} alt='tryhackme'></img>
                         <p>TryHackMe</p>
                     </a>
-
                 </div>
             </div>
         </div>

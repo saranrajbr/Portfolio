@@ -1,170 +1,85 @@
-const soloProjects = [
-    {
-        id: 1,
-        category: "NETWORK SECURITY",
-        title: "Automated Vulnerability Scanner",
-        description: "Custom Python-based tool that automates Nmap scans and cross-references results with CVE databases to identify critical infrastructure flaws.",
-        tags: ["Python", "Nmap API", "CVE-Search"]
-    },
-    {
-        id: 2,
-        category: "WEB DEVELOPMENT",
-        title: "E-Commerce Secure Platform",
-        description: "A full-stack e-commerce site with JWT authentication, role-based access control, and seamless Stripe payment integration.",
-        tags: ["React", "Node.js", "MongoDB", "Stripe"]
-    },
-    {
-        id: 3,
-        category: "CLOUD INFRASTRUCTURE",
-        title: "AWS Serverless API",
-        description: "Designed a serverless backend using AWS Lambda and API Gateway for a mobile application, optimizing performance and reducing costs.",
-        tags: ["AWS Lambda", "DynamoDB", "Node.js"]
-    },
-    {
-        id: 4,
-        category: "MALWARE ANALYSIS",
-        title: "Sandbox Environment Setup",
-        description: "Created an isolated virtualized environment for safely executing and analyzing the behavior of suspicious executables and ransomware.",
-        tags: ["VirtualBox", "Wireshark", "Sysinternals"]
-    },
-    {
-        id: 5,
-        category: "FRONTEND DEV",
-        title: "Interactive Admin Dashboard",
-        description: "Developed a responsive admin dashboard featuring real-time data visualization using Chart.js and complex data table management.",
-        tags: ["React", "Chart.js", "TailwindCSS"]
-    },
-    {
-        id: 6,
-        category: "CRYPTOGRAPHY",
-        title: "End-to-End Chat App",
-        description: "Built a secure real-time chat application implementing AES-256 encryption for messages to ensure total privacy between users.",
-        tags: ["Socket.io", "React", "CryptoJS"]
-    }
-];
+import { useState } from 'react';
+import { projects } from '../data/projects';
 
-const teamProjects = [
-    {
-        id: 1,
-        category: "ENTERPRISE SOFTWARE",
-        title: "Healthcare Record System",
-        description: "Collaborated on a scalable patient record management system, focusing on HIPAA compliance, secure data storage, and audit logging.",
-        tags: ["Java", "Spring Boot", "PostgreSQL"]
-    },
-    {
-        id: 2,
-        category: "GAME DEVELOPMENT",
-        title: "Multiplayer Survival Game",
-        description: "Co-developed an online multiplayer survival game using Unity and C#, handling client-side prediction and server reconciliation.",
-        tags: ["Unity", "C#", "Photon PUN"]
-    },
-    {
-        id: 3,
-        category: "MOBILE APP",
-        title: "Fitness Tracking Protocol",
-        description: "Team built an iOS and Android compatible fitness app that tracks user workouts, diet, and shares progress with a community feed.",
-        tags: ["React Native", "Firebase", "Redux"]
-    },
-    {
-        id: 4,
-        category: "AI & MACHINE LEARNING",
-        title: "Phishing Detection Model",
-        description: "Trained a machine learning model to classify emails as phishing or legitimate based on structural features and NLP analysis.",
-        tags: ["Python", "Scikit-Learn", "Pandas"]
-    },
-    {
-        id: 5,
-        category: "DEVOPS",
-        title: "CI/CD Pipeline Automation",
-        description: "Refactored a legacy project's deployment strategy by introducing Docker containers and GitHub Actions for continuous integration.",
-        tags: ["Docker", "GitHub Actions", "Nginx"]
-    },
-    {
-        id: 6,
-        category: "BLOCKCHAIN",
-        title: "Decentralized Voting DApp",
-        description: "Developed smart contracts on Ethereum for a tamper-proof voting system with a Next.js frontend interacting via Web3.js.",
-        tags: ["Solidity", "Next.js", "Web3.js"]
-    }
-];
+const categories = ['All', 'Cybersecurity', 'AI/ML'];
 
 const ProjectPage = () => {
+    const [activeFilter, setActiveFilter] = useState('All');
+
+    const filteredProjects = activeFilter === 'All'
+        ? projects
+        : projects.filter(p => p.category === activeFilter);
+
     return (
         <div className="projectpage">
             <div className="projectpage-title">
-                <h2>MY PORTFOLIO</h2>
-                <h1>Projects On Different Fields</h1>
-                <h3>A showcase of technical expertise in full stack development and Ethical Hacking</h3>
-            </div>
-            <div className="projectpage-solo">
-                <div className="projectpage-solo-title">
-                    <div className="solo-project"><h2>Solo Projects</h2></div>
-                    <div className="scroll-indicator">
-                        <span>Swipe</span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </div>
-                </div>
-                <div className="projectpage-solo-content">
-                    {soloProjects.map((project) => (
-                        <div key={`solo-${project.id}`} className="project-card">
-                            <div className="project-img-container">
-                                <div className="project-category">{project.category}</div>
-                            </div>
-                            <div className="project-details">
-                                <h3>{project.title}</h3>
-                                <p>{project.description}</p>
-                                <div className="project-tags">
-                                    {project.tags.map((tag, idx) => (
-                                        <span key={idx}>{tag}</span>
-                                    ))}
-                                </div>
-                                <div className="project-footer">
-                                    <span className="view-case-study">VIEW CASE STUDY &rarr;</span>
-                                    <span className="project-links">&lt; &gt;</span>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-            <div className="projectpage-team">
-                <div className="projectpage-team-title">
-                    <div className="team-project"><h2>Team Projects</h2></div>
-                    <div className="scroll-indicator">
-                        <span>Swipe</span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </div>
-                </div>
-                <div className="projectpage-team-content">
-                    {teamProjects.map((project) => (
-                        <div key={`team-${project.id}`} className="project-card">
-                            <div className="project-img-container">
-                                <div className="project-category">{project.category}</div>
-                            </div>
-                            <div className="project-details">
-                                <h3>{project.title}</h3>
-                                <p>{project.description}</p>
-                                <div className="project-tags">
-                                    {project.tags.map((tag, idx) => (
-                                        <span key={idx}>{tag}</span>
-                                    ))}
-                                </div>
-                                <div className="project-footer">
-                                    <span className="view-case-study">VIEW CASE STUDY &rarr;</span>
-                                    <span className="project-links">&lt; &gt;</span>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                <span className="section-label">PORTFOLIO</span>
+                <h1>Projects</h1>
+                <h3>A showcase of cybersecurity, AI/ML, and development projects</h3>
             </div>
 
+            <div className="project-filters">
+                {categories.map((cat) => (
+                    <button
+                        key={cat}
+                        className={`filter-btn ${activeFilter === cat ? 'filter-btn-active' : ''}`}
+                        onClick={() => setActiveFilter(cat)}
+                    >
+                        {cat}
+                    </button>
+                ))}
+            </div>
+
+            <div className="project-grid">
+                {filteredProjects.map((project) => (
+                    <div key={project.id} className="project-card">
+                        <div className="project-card-header">
+                            <div className="project-category-badge">{project.category}</div>
+                            <div className="project-icon">
+                                {project.category === 'Cybersecurity' ? (
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    </svg>
+                                ) : project.category === 'AI/ML' ? (
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1.27a7 7 0 0 1-6 4 7 7 0 0 1-6-4H3a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/>
+                                        <circle cx="12" cy="14" r="3"/>
+                                    </svg>
+                                ) : (
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <polyline points="16 18 22 12 16 6"></polyline>
+                                        <polyline points="8 6 2 12 8 18"></polyline>
+                                    </svg>
+                                )}
+                            </div>
+                        </div>
+                        <div className="project-card-body">
+                            <h3>{project.title}</h3>
+                            <p>{project.description}</p>
+                            <div className="project-tags">
+                                {project.tags.map((tag, idx) => (
+                                    <span key={idx} className="project-tag">{tag}</span>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="project-card-footer">
+                            {project.github && (
+                                <a
+                                    href={project.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="project-btn project-btn-github"
+                                >
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    Code
+                                </a>
+                            )}
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }

@@ -1,0 +1,42 @@
+export const projects = [
+    {
+        id: 1,
+        title: "Port Scanner",
+        category: "Cybersecurity",
+        description: "Developed a TCP port scanner to identify open ports and services on target systems. Implemented multi-threaded scanning and banner grabbing for service enumeration.",
+        tags: ["Python", "TCP", "Multithreading", "Network Security"],
+        github: "https://github.com/saranrajbr/Port-Scanning-Frontend",
+    },
+    {
+        id: 2,
+        title: "Payment Fraud Detection",
+        category: "AI/ML",
+        description: "Built a machine learning model to detect potentially fraudulent payment transactions. Performed data preprocessing, feature engineering and model evaluation using scikit-learn.",
+        tags: ["Python", "Machine Learning", "scikit-learn"],
+        github: "https://github.com/saranrajbr/Detecting-payment-fraud",
+    },
+    {
+        id: 3,
+        title: "RAG Assistant AI",
+        category: "AI/ML",
+        description: "Built a Retrieval-Augmented Generation based assistant that answers user queries from documents using embeddings and LLMs.",
+        tags: ["Python", "RAG", "LLM", "Embeddings", "AI"],
+        github: "https://github.com/saranrajbr/Rag-assistant--ai",
+    },
+    {
+        id: 4,
+        title: "Encrypting App",
+        category: "Cybersecurity",
+        description: "Developed an application to encrypt and decrypt text using symmetric encryption algorithms.",
+        tags: ["Python", "Cryptography"],
+        github: null,
+    },
+    {
+        id: 5,
+        title: "Image Encryption",
+        category: "Cybersecurity",
+        description: "Implemented image encryption and decryption using AES to ensure data confidentiality.",
+        tags: ["Python", "AES", "Cryptography"],
+        github: null,
+    },
+];
