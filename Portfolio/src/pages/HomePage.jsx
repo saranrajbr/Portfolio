@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Pentest from '../assets/testicon.png';
-import Web from '../assets/devicon.png';
 import resume from '../assets/resume_saran_raj_b_r.png';
 import { interests, education } from '../data/skills';
+import { projects } from '../data/projects';
 
 const focusAreas = [
     {
@@ -28,9 +26,34 @@ const focusAreas = [
     },
 ];
 
-const HomePage = () => {
-    const [activeCard, setActiveCard] = useState(null);
+const stats = [
+    {
+        value: '5',
+        label: 'Projects Built',
+    },
+    {
+        value: '8',
+        label: 'Certifications',
+    },
+    {
+        value: '6',
+        label: 'Skill Domains',
+    },
+    {
+        value: '10+',
+        label: 'Security Tools',
+    },
+];
 
+const learningTags = [
+    'Cybersecurity',
+    'Web Security',
+    'Penetration Testing',
+    'Network Security',
+    'AI-Powered Security',
+];
+
+const HomePage = () => {
     return (
         <div className="homepage-content">
             <div className="hero-section">
@@ -39,10 +62,10 @@ const HomePage = () => {
                         <span className="hero-badge-dot"></span>
                         Available for opportunities
                     </div>
+                    <p className="hero-role">Cybersecurity Student</p>
                     <h1 className="hero-name">
                         Saran Raj B R
                     </h1>
-                    <p className="hero-role">Cybersecurity Student</p>
                     <h2 className="hero-headline">
                         Securing Systems. <br />
                         <span className="hero-headline-accent">Building Intelligent Solutions.</span>
@@ -91,29 +114,40 @@ const HomePage = () => {
                 </div>
             </div>
 
+            <div className="home-stats">
+                {stats.map((stat, index) => (
+                    <div key={index} className="home-stat">
+                        <span className="home-stat-value">{stat.value}</span>
+                        <span className="home-stat-label">{stat.label}</span>
+                    </div>
+                ))}
+            </div>
+
             <div className="about-section">
                 <div className="section-header">
                     <span className="section-label">ABOUT ME</span>
                     <h2 className="section-title">Who I Am</h2>
                 </div>
-                <p className="about-text">
-                    Cybersecurity student with a strong interest in network security, web security, and penetration testing. Hands-on experience with security tools and technologies through labs, certifications, and personal projects. Eager to apply my skills and learn in real-world cybersecurity environments.
-                </p>
+                <div className="about-panel">
+                    <p className="about-text">
+                        Cybersecurity student with a strong interest in network security, web security, and penetration testing. Hands-on experience with security tools and technologies through labs, certifications, and personal projects. Eager to apply my skills and learn in real-world cybersecurity environments.
+                    </p>
+                    <div className="about-highlights">
+                        <span className="about-highlight">Network Security</span>
+                        <span className="about-highlight">Web Security</span>
+                        <span className="about-highlight">Penetration Testing</span>
+                    </div>
+                </div>
             </div>
 
             <div className="focus-section">
                 <div className="section-header">
-                    <span className="section-label">FOCUS AREAS</span>
-                    <h2 className="section-title">What I Do</h2>
+                    <span className="section-label">WHAT I DO</span>
+                    <h2 className="section-title">Focus Areas</h2>
                 </div>
                 <div className="focus-grid">
                     {focusAreas.map((area, index) => (
-                        <div
-                            key={index}
-                            className={`focus-card ${activeCard === index ? 'focus-card-active' : ''}`}
-                            onMouseEnter={() => setActiveCard(index)}
-                            onMouseLeave={() => setActiveCard(null)}
-                        >
+                        <div key={index} className="focus-card">
                             <span className="focus-card-icon">{area.icon}</span>
                             <h3>{area.title}</h3>
                             <p>{area.description}</p>
@@ -122,21 +156,32 @@ const HomePage = () => {
                 </div>
             </div>
 
-            <div className="dual-section">
-                <div className="dual-card">
-                    <div className="dual-card-icon">
-                        <img src={Pentest} alt="Penetration Testing" />
-                    </div>
-                    <h3>Penetration Testing</h3>
-                    <p>Specializing in ethical hacking and security assessments focused on identifying vulnerabilities in web applications, networks, and systems using industry-standard methodologies.</p>
+            <div className="home-projects-preview section-block">
+                <div className="section-header">
+                    <span className="section-label">PORTFOLIO</span>
+                    <h2 className="section-title">Featured Projects</h2>
                 </div>
-                <div className="dual-card">
-                    <div className="dual-card-icon">
-                        <img src={Web} alt="Web Development" />
-                    </div>
-                    <h3>Web Development</h3>
-                    <p>Building secure, scalable web applications with modern technologies, emphasizing clean architecture, performance optimization, and security-first development practices.</p>
+                <div className="home-projects-list">
+                    {projects.slice(0, 3).map((project) => (
+                        <div key={project.id} className="home-project-item">
+                            <span className="home-project-category">{project.category}</span>
+                            <h3>{project.title}</h3>
+                            <p>{project.description}</p>
+                            <div className="home-project-tags">
+                                {project.tags.slice(0, 3).map((tag, idx) => (
+                                    <span key={idx}>{tag}</span>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
+                <Link to="/projects" className="home-view-all">
+                    View All Projects
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </Link>
             </div>
 
             <div className="learning-section">
@@ -145,11 +190,9 @@ const HomePage = () => {
                     <h2 className="section-title">Growing Every Day</h2>
                 </div>
                 <div className="learning-tags">
-                    <span>Cybersecurity</span>
-                    <span>Web Security</span>
-                    <span>Penetration Testing</span>
-                    <span>Network Security</span>
-                    <span>AI-Powered Security</span>
+                    {learningTags.map((tag, index) => (
+                        <span key={index}>{tag}</span>
+                    ))}
                 </div>
             </div>
 
@@ -158,7 +201,7 @@ const HomePage = () => {
                     <span className="section-label">EDUCATION</span>
                     <h2 className="section-title">Academic Background</h2>
                 </div>
-                <div className="education-timeline">
+                <div className="education-block">
                     {education.map((item) => (
                         <div key={item.id} className="education-item">
                             <div className="education-dot"></div>
