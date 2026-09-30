@@ -39,4 +39,12 @@ export const projects = [
         tags: ["Python", "AES", "Cryptography"],
         github: null,
     },
+    {
+        id: 6,
+        title: "UniShield AI",
+        category: "Cybersecurity",
+        description: "Built a passive AI-powered detection system that monitors router-level unidirectional IP traffic and raises real-time, evidence-backed alerts for DDoS, C2 beaconing, DNS tunneling, port scans and data exfiltration—all without a return path or payload decryption.",
+        tags: ["Python", "FastAPI", "NetFlow", "Machine Learning", "Network Security"],
+        github: "https://github.com/saranrajbr/UniShieldAI",
+    },
 ];
