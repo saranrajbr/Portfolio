@@ -27,9 +27,10 @@ export const projects = [
         id: 4,
         title: "Encrypting App",
         category: "Cybersecurity",
-        description: "Developed an application to encrypt and decrypt text using symmetric encryption algorithms.",
-        tags: ["Python", "Cryptography"],
-        github: null,
+        description: "Built CipherForge, a full-stack cryptography toolkit for encoding, authenticated encryption and hashing with AES-256-GCM, ChaCha20-Poly1305, RSA-OAEP and bcrypt.",
+        tags: ["React", "FastAPI", "Python", "AES-256-GCM", "Cryptography"],
+        github: "https://github.com/saranrajbr/CipherVault-Backend",
+        demo: "https://ciphervault-frontend-self.vercel.app",
     },
     {
         id: 5,
