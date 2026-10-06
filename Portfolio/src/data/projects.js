@@ -6,6 +6,7 @@ export const projects = [
         description: "Developed a TCP port scanner to identify open ports and services on target systems. Implemented multi-threaded scanning and banner grabbing for service enumeration.",
         tags: ["Python", "TCP", "Multithreading", "Network Security"],
         github: "https://github.com/saranrajbr/Port-Scanning-Frontend",
+        demo: "https://port-scanning-frontend.vercel.app",
     },
     {
         id: 2,
@@ -14,6 +15,7 @@ export const projects = [
         description: "Built a machine learning model to detect potentially fraudulent payment transactions. Performed data preprocessing, feature engineering and model evaluation using scikit-learn.",
         tags: ["Python", "Machine Learning", "scikit-learn"],
         github: "https://github.com/saranrajbr/Detecting-payment-fraud",
+        demo: "https://detecting-payment-fraud.vercel.app",
     },
     {
         id: 3,
@@ -22,6 +24,7 @@ export const projects = [
         description: "Built a Retrieval-Augmented Generation based assistant that answers user queries from documents using embeddings and LLMs.",
         tags: ["Python", "RAG", "LLM", "Embeddings", "AI"],
         github: "https://github.com/saranrajbr/Rag-assistant--ai",
+        demo: "https://ai-rag-assistance.streamlit.app",
     },
     {
         id: 4,
